@@ -32,19 +32,39 @@ Completa ejercicio 3: reservas y liberaciones
 """
 
 def reservar_puesto(puestos, coordenada):
-    # TODO: implementa esta funcion.
-    pass
+    f, c = coordenada
+    if f < 0 or c < 0 or f >= len(puestos) or c >= len(puestos[0]):
+        return False    
+    
+    if puestos[f][c] == 0:
+        puestos[f][c] = 1
+        return True
+    return False
 
 
 def liberar_puesto(puestos, coordenada):
-    # TODO: implementa esta funcion.
-    pass
+    f, c = coordenada
+    if f < 0 or c < 0 or f >= len(puestos) or c >= len(puestos[0]):
+        return False
+
+    if puestos[f][c] == 1:
+        puestos[f][c] = 0
+        return True
+    
+    return False
 
 
 if __name__ == "__main__":
     puestos = [[1, 0, 1], [0, 0, 1]]
 
     # TODO: escribe las llamadas y muestra los resultados con print.
+    print(reservar_puesto(puestos, (0, 1)))  # True
+    print(reservar_puesto(puestos, (0, 1)))  # False
+    print(liberar_puesto(puestos, (1, 2)))  # True
+    print(liberar_puesto(puestos, (1, 2)))  # False
+    print(reservar_puesto(puestos, (5, 0)))  # False
+    print(reservar_puesto(puestos, (-1, 0)))  # False
+
     # TODO: agrega al menos un caso propio.
 
 # ANALISIS
